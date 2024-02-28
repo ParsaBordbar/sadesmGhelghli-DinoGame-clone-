@@ -1,7 +1,17 @@
-var character = document.getElementById("character");
-var block = document.getElementById("block");
-var counter=0;
-var highScore = 0;
+let character = document.getElementById("character");
+let block = document.getElementById("block");
+let counter=0;
+let highScore = 0;
+
+
+const ctx = document.getElementById("character").getContext("2d");
+
+const image = new Image();
+image.onload = () => {
+  // Draw the image into the canvas
+  ctx.drawImage(image, 0, 0);
+};
+image.src = "assets/sR1.png";
 
 document.getElementById("highscoreSpan").innerHTML = highScore = parseInt(localStorage.getItem('HighScore:'));
 function jump(){
@@ -12,7 +22,7 @@ function jump(){
     },600);
 }
 
-var checkDead = setInterval(() => {
+let checkDead = setInterval(() => {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
