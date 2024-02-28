@@ -4,45 +4,48 @@
     overflow-x: hidden;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.game{
+    width: 90vw;
+    height: 70vh;
+    border: 1px solid black;
+    margin: auto;
+    background-color: blanchedalmond;
+    
+}
+
 #character {
     width: 250px;
     height: 250px;
     image-rendering: pixelated;
+    position: relative;
+    top: 250px;
     animation: character-run .5s infinite ;
 }
 
-/* .bg{
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-} */
-
-.game{
-    width: 100vw;
-    height: 75vh;
-    border: 1px solid black;
-    margin: auto;
-    display: flex;
-    justify-content: start;
-    align-items: end;
+#char{
+    background-image: url(./assets/sR1.png);
 }
 
-.animate{
-    animation: jump 0.25s linear;
+.jump{
+    animation: jump-animation 0.25s linear;
 }
-@keyframes jump{
-    45%{top: 50px;}
-    75%{top: 100px;}
-    100%{top: 150px;}
+@keyframes jump-animation{
+    45%{top: 50rem;}
 }
 
 #block{
     background-color: rgb(255, 38, 0);
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
     position: relative;
-    top: 139px;
+    top: 160px;
     left: 500px;
     animation: block .5s infinite linear;
 }

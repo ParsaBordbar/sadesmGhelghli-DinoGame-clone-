@@ -1,10 +1,9 @@
-let character = document.getElementById("character");
-let block = document.getElementById("block");
+const character = document.getElementById("character");
+const block = document.getElementById("block");
+const ctx = document.getElementById("character").getContext("2d");
+
 let counter=0;
 let highScore = 0;
-
-
-const ctx = document.getElementById("character").getContext("2d");
 
 const image = new Image();
 image.onload = () => {
@@ -14,11 +13,14 @@ image.onload = () => {
 image.src = "assets/sR1.png";
 
 document.getElementById("highscoreSpan").innerHTML = highScore = parseInt(localStorage.getItem('HighScore:'));
+
 function jump(){
-    if(character.classList == "animate"){return}
-    character.classList.add("animate");
+    if(character.classList == "jump"){
+        return
+    }
+    character.classList.add("jump");
     setTimeout(function(){
-        character.classList.remove("animate");
+        character.classList.remove("jump");
     },600);
 }
 
