@@ -15,9 +15,13 @@ function jump() {
         }, 300);
     }
 }
-// window.onkeydown = (event) => {
+document.addEventListener('keydown', (event) => {
+    event.preventDefault();
 
-// }
+    if (event.code == 'Space') {
+        jump()
+    }
+});
 
 let checkDead = setInterval(() => {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
@@ -29,9 +33,9 @@ let checkDead = setInterval(() => {
         highScore = 0
     }
 
-    if(blockLeft<120 == blockLeft >50  && characterTop>400){
+    if(blockLeft<120 == blockLeft >80  && characterTop>400){
         block.style.animation = "none";
-        alert("Game Over. score: "+ Math.floor(counter/100));
+        alert("Game Over. You scored: "+ "" + Math.floor(counter/100));
         counter=0;
         block.style.animation = "block 1s infinite linear";
     }else{

@@ -4,14 +4,13 @@
     overflow: hidden;
 }
 
+body{
+    background-color: blanchedalmond;
+}
 
 .game{
-    width: 90vw;
     height: 70vh;
-    border: 1px solid black;
-    margin: auto;
-    background-color: blanchedalmond;
-    
+    margin: auto;    
 }
 
 #character {
@@ -21,27 +20,40 @@
     image-rendering: pixelated;
     position: relative;
     top: 450px;
-    left: 100px;
-    transform: scale(4);
+    left: 200px;
+    transform: scale(5);
+
+}
+.run{
+    animation: character-run .3s infinite ;
 }
 
-.asset{
-    animation: character-run .5s infinite ;
-}
+@keyframes character-run {
+    0%{
+        background-image: url('./assets/sR1.png');
+        image-rendering: pixelated;
+        
+    }
+    50%{
+        background-image: url('./assets/sR2.png');
+        image-rendering: pixelated;
 
+    }
+    
+}
 
 .jump {
     animation: jump 0.3s linear;
 }
 @keyframes jump {
     0% {
-        top: 450px; /*distance from the top of the parent element*/
+        top: 450px;
     }
     50% {
-        top: 260px;
+        top: 250px;
     }
     60% {
-        top: 210px;
+        top: 200px;
     }
     100% {
         top: 450px;
@@ -49,18 +61,27 @@
 }
 
 #block{
-    background-color: rgb(255, 38, 0);
-    width: 60px;
-    height: 60px;
+    background-image: url(./assets/JavaScript-logo.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
     position: relative;
-    top: 428px;
-    left: 500px;
-    animation: block .5s infinite linear;
+    top: 410px;
+    animation: block 1s infinite linear;
 }
 @keyframes block{
-    0%{left: 500px}
-    100%{left: -20px}
+    0%{left: 100vw}
+    100%{left: -10vw}
 }
+
+.text-box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: larger;
+    border-radius: 2rem;
+}
+
 
 p{
     text-align: center;
