@@ -1,28 +1,23 @@
 const character = document.getElementById("character");
 const block = document.getElementById("block");
-const ctx = document.getElementById("character").getContext("2d");
 
 let counter=0;
 let highScore = 0;
 
-const image = new Image();
-image.onload = () => {
-  // Draw the image into the canvas
-  ctx.drawImage(image, 0, 0);
-};
-image.src = "assets/sR1.png";
 
 document.getElementById("highscoreSpan").innerHTML = highScore = parseInt(localStorage.getItem('HighScore:'));
 
-function jump(){
-    if(character.classList == "jump"){
-        return
+function jump() {
+    if (dispatchEvent.classList != "jump") {
+        character.classList.add("jump");
+        setTimeout(function () {
+            character.classList.remove("jump");
+        }, 300);
     }
-    character.classList.add("jump");
-    setTimeout(function(){
-        character.classList.remove("jump");
-    },600);
 }
+// window.onkeydown = (event) => {
+
+// }
 
 let checkDead = setInterval(() => {
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
@@ -34,7 +29,7 @@ let checkDead = setInterval(() => {
         highScore = 0
     }
 
-    if(blockLeft<25 && blockLeft >-100 && characterTop>=120){
+    if(blockLeft<120 == blockLeft >50  && characterTop>400){
         block.style.animation = "none";
         alert("Game Over. score: "+ Math.floor(counter/100));
         counter=0;

@@ -1,15 +1,9 @@
 *{
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
-}
 
 .game{
     width: 90vw;
@@ -21,23 +15,37 @@ body{
 }
 
 #character {
-    width: 250px;
-    height: 250px;
+    width: 40px;
+    height: 40px;
+    background-image: url('./assets/sR1.png');
     image-rendering: pixelated;
     position: relative;
-    top: 250px;
+    top: 450px;
+    left: 100px;
+    transform: scale(4);
+}
+
+.asset{
     animation: character-run .5s infinite ;
 }
 
-#char{
-    background-image: url(./assets/sR1.png);
-}
 
-.jump{
-    animation: jump-animation 0.25s linear;
+.jump {
+    animation: jump 0.3s linear;
 }
-@keyframes jump-animation{
-    45%{top: 50rem;}
+@keyframes jump {
+    0% {
+        top: 450px; /*distance from the top of the parent element*/
+    }
+    50% {
+        top: 260px;
+    }
+    60% {
+        top: 210px;
+    }
+    100% {
+        top: 450px;
+    }
 }
 
 #block{
@@ -45,7 +53,7 @@ body{
     width: 60px;
     height: 60px;
     position: relative;
-    top: 160px;
+    top: 428px;
     left: 500px;
     animation: block .5s infinite linear;
 }
